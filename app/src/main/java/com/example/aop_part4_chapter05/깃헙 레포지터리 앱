@@ -4,3 +4,61 @@
 
 https://api.github.com/users/lii0730/repos
 -> 깃헙 API 정보 긁어오는 주소 Json 형태
+
+
+<깃헙 레포지터리 앱>
+- 로그인 버튼 클릭 -> 액세스 토큰 받아오기
+- 검색기능 구현 -> Mocking data sample 구현
+- Room 개념 -> 찜 기능
+
+
+<코루틴 개념>
+코루틴 -> 동시성 => 작업이 빠르게 일어나는 형태
+쓰레드 -> 병렬성
+
+Thread
+- task 단위 : Thread
+- 각 작업에 Thread를 할당
+- 각 Thread는 자체 Stack 메모리를 가지며, JVM Stack 영역 차지
+
+- Context Switching
+ Blocking : Thread1이 Thread2의 결과가 나올떄 까지 기다려야 한다면
+            Thread1은 Blocking 되어 사용하지 못함
+
+Coroutines
+- task 단위 : Object(Coroutine)
+- 각 작업에 Object(Coroutine)을 할당
+- Coroutine은 객체를 담는 JVM Heap에 적재
+
+- Context Switching => No Context Switching
+    : 코드를 통해 Switching 시점 보장
+    Suspend is Not Blocking
+    -> Coroutine1이 Coroutine2의 결과가 나올때 까지 기다려야 한다면
+    Coroutine1은 suspend 되지만, Coroutine1을 수행하던 Thread는 유효
+    -> Coroutine2도 Coroutine1과 동일한 Thread에서 실행할 수 있음음
+
+
+suspend(일시 중단 함수)
+-> 앞에 suspend 키워드를 붙여서 함수를 구성
+-> 람다를 구성하여 다른 일시 중단 함수를 호출
+
+Coroutine Dispatcher
+-> 코루틴을 시작하거나 재개할 스레드를 결정하기 위한 도구
+-> 모든 Dispatcher는 Coroutine Dispatcher 인터페이스를 구현해야 한다.
+
+Coroutine Builder
+- async()
+    : 결과가 예상되는 코루틴 시작에 사용(결과 반환)
+    : 전역으로 예외 처리 가능
+    : 결과, 예외 반환 가능한 Defered<T> 반환
+
+- launch()
+    : 결과를 반환하지 않는 코루틴 시작에 사용(결과 반환x)
+    : 자체, 자식 코루틴 실행을 취소할 수 있는 Job 반환
+
+- runBlocking()
+    : Blocking 코드를 일시 중지(suspend) 가능한 코드로 연결하기 위한 용도
+    : Main 함수나 Unit Test때 많이 사용
+    : 코루틴의 실행이 끝날 때 까지 현재 스레드를 차단
+
+    -> 실무에선 자주 사용하지 않음
