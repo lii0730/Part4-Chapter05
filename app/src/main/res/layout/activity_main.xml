@@ -30,4 +30,30 @@
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintEnd_toEndOf="parent"/>
 
+	<ProgressBar
+		android:id="@+id/progressBar"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="20dp"
+		android:visibility="invisible"
+		app:layout_constraintBottom_toBottomOf="@+id/login_button"
+		app:layout_constraintTop_toBottomOf="@+id/logo_image"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"/>
+
+	<TextView
+		android:id="@+id/login_text"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="로그인 중입니다..."
+		android:visibility="invisible"
+		android:textSize="15sp"
+		android:textStyle="bold"
+		android:textColor="@color/black"
+		android:layout_marginTop="5dp"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/progressBar"/>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

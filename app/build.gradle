@@ -16,7 +16,7 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField "String", "GITHUB_CLIENT_ID", project.properties["GITHUB_CLIENT_ID"]
-        buildConfigField "String", "GITHUB_CLIENT_SECRETS", project.properties["GITHUB_CLIENT_SECRETS"]
+        buildConfigField "String", "GITHUB_CLIENT_SECRET", project.properties["GITHUB_CLIENT_SECRET"]
     }
 
     buildTypes {

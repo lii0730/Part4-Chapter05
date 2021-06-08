@@ -10,7 +10,8 @@
 		android:supportsRtl="true"
 		android:theme="@style/Theme.AOPPart4Chapter05">
 		<activity android:name=".SearchReposActivity"></activity>
-		<activity android:name=".MainActivity">
+		<activity android:name=".MainActivity"
+			android:launchMode="singleTop">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
 

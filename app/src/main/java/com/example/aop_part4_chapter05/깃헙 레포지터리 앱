@@ -5,6 +5,9 @@
 https://api.github.com/users/lii0730/repos
 -> 깃헙 API 정보 긁어오는 주소 Json 형태
 
+https://blog.aaronroh.org/107
+-> post 요청
+
 
 <깃헙 레포지터리 앱>
 - 로그인 버튼 클릭 -> 액세스 토큰 받아오기
