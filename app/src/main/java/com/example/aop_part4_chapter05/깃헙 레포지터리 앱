@@ -49,6 +49,9 @@ Coroutine Dispatcher
 -> 코루틴을 시작하거나 재개할 스레드를 결정하기 위한 도구
 -> 모든 Dispatcher는 Coroutine Dispatcher 인터페이스를 구현해야 한다.
 
+* Dispatchers.IO -> Android 환경에서는 Background Job
+* Dispatchers.Main -> Android 환경에서는 Ui Thread
+
 Coroutine Builder
 - async()
     : 결과가 예상되는 코루틴 시작에 사용(결과 반환)

@@ -1,5 +1,6 @@
 package com.example.aop_part4_chapter05.utility
 
+import com.example.aop_part4_chapter05.Entity.GitHubRepos
 import com.example.aop_part4_chapter05.Services.AuthApiService
 import com.example.aop_part4_chapter05.Services.GitHubApiService
 import com.example.aop_part4_chapter05.URL.URL
@@ -31,7 +32,10 @@ object RetrofitUtil {
     }
 
     private fun GitHubReposRetrofit() : Retrofit {
-        val gson : Gson = GsonBuilder().setLenient().create()
+        val gson : Gson = GsonBuilder()
+            .setLenient()
+            .create()
+
         return Retrofit.Builder()
             .baseUrl(URL.GITHUB_API_URL)
             .addConverterFactory(GsonConverterFactory.create(gson))

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/userImageView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:scaleType="fitCenter"
+        android:background="@drawable/circle_background_white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/userLoginTextView"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/userImageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toEndOf="@+id/userImageView"
+        app:layout_constraintTop_toTopOf="@+id/userImageView"
+        tools:text="tmpIDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD" />
+
+    <TextView
+        android:id="@+id/userUrlTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/userImageView"
+        app:layout_constraintTop_toBottomOf="@+id/userImageView"
+        tools:text="saddddddddddd" />
+
+    <TextView
+        android:id="@+id/descTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/userImageView"
+        app:layout_constraintTop_toBottomOf="@+id/userUrlTextView"
+        tools:text="개발 블로그" />
+
+    <ImageView
+        android:id="@+id/starImageView"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="20dp"
+        android:contentDescription="@null"
+        android:scaleType="fitCenter"
+        android:src="@drawable/star"
+        app:layout_constraintBottom_toTopOf="@+id/lineView"
+        app:layout_constraintStart_toStartOf="@+id/userImageView"
+        app:layout_constraintTop_toBottomOf="@+id/descTextView" />
+
+    <TextView
+        android:id="@+id/starCountTextView"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/lineView"
+        app:layout_constraintEnd_toStartOf="@+id/languageColorImageView"
+        app:layout_constraintStart_toEndOf="@+id/starImageView"
+        app:layout_constraintTop_toTopOf="@+id/starImageView"
+        tools:text="0" />
+
+    <ImageView
+        android:id="@+id/languageColorImageView"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="15dp"
+        android:background="@drawable/circle_background"
+        android:contentDescription="@null"
+        app:layout_constraintBottom_toTopOf="@+id/lineView"
+        app:layout_constraintStart_toEndOf="@+id/starCountTextView"
+        app:layout_constraintTop_toTopOf="@+id/starImageView" />
+
+    <TextView
+        android:id="@+id/languageTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/lineView"
+        app:layout_constraintStart_toEndOf="@+id/languageColorImageView"
+        app:layout_constraintTop_toTopOf="@+id/starImageView"
+        tools:text="Kotlin" />
+
+    <View
+        android:id="@+id/lineView"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/starImageView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,5 +7,6 @@ data class GitHubRepos(
     @SerializedName("updated_at") val updated_at : String,
     @SerializedName("owner") val owner: GitHubOwner,
     @SerializedName("stargazers_count") val stargazers_count : Int,
-    @SerializedName("language") val language : String
+    @SerializedName("language") val language : String,
+    @SerializedName("description") val description : String
 )

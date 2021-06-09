@@ -1,11 +1,69 @@
 package com.example.aop_part4_chapter05
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.aop_part4_chapter05.Adapter.SearchResultRepositoryAdpater
+import com.example.aop_part4_chapter05.Entity.GitHubRepos
+import com.example.aop_part4_chapter05.databinding.ActivitySearchReposBinding
+import com.example.aop_part4_chapter05.utility.RetrofitUtil
+import kotlinx.coroutines.*
+import kotlin.coroutines.CoroutineContext
 
-class SearchReposActivity : AppCompatActivity() {
+class SearchReposActivity : AppCompatActivity(), CoroutineScope {
+
+	private val searchBinding: ActivitySearchReposBinding by lazy {
+		ActivitySearchReposBinding.inflate(layoutInflater)
+	}
+
+	private lateinit var searchAdapter : SearchResultRepositoryAdpater
+
+	private var list : List<GitHubRepos>? = null
+
+	private val job : Job = Job()
+
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
-		setContentView(R.layout.activity_search_repos)
+		setContentView(searchBinding.root)
+
+		initRecyclerView()
+		initViews()
 	}
+
+	private fun initViews() {
+		searchBinding.searchButton.setOnClickListener {
+			//TODO: repository 정보 받아오기
+			launch {
+				try {
+					withContext(Dispatchers.IO) {
+						list = RetrofitUtil.GitHubService.getRepos(
+							searchBinding.searchKeywordEditText.text.toString()
+						)
+						withContext(Dispatchers.Main) {
+							//TODO: Adapter 로 Repos List 전달
+							list?.let {
+								searchAdapter.submitList(it)
+							}
+						}
+					}
+				} catch (e: Exception){
+					Log.e("getRepository", e.toString())
+					Toast.makeText(this@SearchReposActivity, "검색 결과 없음", Toast.LENGTH_SHORT).show()
+				}
+			}
+		}
+	}
+
+	private fun initRecyclerView() {
+		searchAdapter = SearchResultRepositoryAdpater()
+		searchBinding.resultRecyclerview.apply {
+			this.layoutManager = LinearLayoutManager(this@SearchReposActivity)
+			this.adapter = searchAdapter
+		}
+	}
+
+	override val coroutineContext: CoroutineContext
+		get() = Dispatchers.Main + job
 }
