@@ -1,11 +1,12 @@
 package com.example.aop_part4_chapter05
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.aop_part4_chapter05.Adapter.SearchResultRepositoryAdpater
+import com.example.aop_part4_chapter05.Adapter.SearchResultRepositoryAdapter
 import com.example.aop_part4_chapter05.Entity.GitHubRepos
 import com.example.aop_part4_chapter05.databinding.ActivitySearchReposBinding
 import com.example.aop_part4_chapter05.utility.RetrofitUtil
@@ -18,7 +19,7 @@ class SearchReposActivity : AppCompatActivity(), CoroutineScope {
 		ActivitySearchReposBinding.inflate(layoutInflater)
 	}
 
-	private lateinit var searchAdapter : SearchResultRepositoryAdpater
+	private lateinit var searchAdapter : SearchResultRepositoryAdapter
 
 	private var list : List<GitHubRepos>? = null
 
@@ -57,7 +58,13 @@ class SearchReposActivity : AppCompatActivity(), CoroutineScope {
 	}
 
 	private fun initRecyclerView() {
-		searchAdapter = SearchResultRepositoryAdpater()
+		searchAdapter = SearchResultRepositoryAdapter(onClickedItem = { repo ->
+			//TODO: repository 클릭했을 경우 동작 처리
+			val intent = Intent(this, SelectedReposActivity::class.java)
+			intent.putExtra("repo", repo)
+			startActivity(intent)
+		})
+
 		searchBinding.resultRecyclerview.apply {
 			this.layoutManager = LinearLayoutManager(this@SearchReposActivity)
 			this.adapter = searchAdapter

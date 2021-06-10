@@ -3,7 +3,6 @@ package com.example.aop_part4_chapter05.Adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.recyclerview.widget.DiffUtil
@@ -13,45 +12,31 @@ import com.bumptech.glide.Glide
 import com.example.aop_part4_chapter05.Entity.GitHubRepos
 import com.example.aop_part4_chapter05.R
 
-class SearchResultRepositoryAdpater : ListAdapter<GitHubRepos, SearchResultRepositoryAdpater.ViewHolder>(differ) {
+class SearchResultRepositoryAdapter(val onClickedItem : (GitHubRepos?) -> Unit) : ListAdapter<GitHubRepos, SearchResultRepositoryAdapter.ViewHolder>(differ) {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-
-        private val userImageView : AppCompatImageView by lazy {
-            itemView.findViewById(R.id.userImageView)
-        }
-
-        private val userLoginTextView : TextView by lazy {
-            itemView.findViewById(R.id.userLoginTextView)
-        }
-
-        private val userUrlTextView : TextView by lazy {
-            itemView.findViewById(R.id.userUrlTextView)
-        }
-
-        private val descTextView : TextView by lazy {
-            itemView.findViewById(R.id.descTextView)
-        }
-
-        private val starCountTextView : TextView by lazy {
-            itemView.findViewById(R.id.starCountTextView)
-        }
-
-        private val languageTextView : TextView by lazy {
-            itemView.findViewById(R.id.languageTextView)
-        }
+        private val userImageView : AppCompatImageView by lazy { itemView.findViewById(R.id.userImageView) }
+        private val userLoginTextView : TextView by lazy { itemView.findViewById(R.id.userLoginTextView) }
+        private val userUrlTextView : TextView by lazy { itemView.findViewById(R.id.userUrlTextView) }
+        private val descTextView : TextView by lazy { itemView.findViewById(R.id.descTextView) }
+        private val starCountTextView : TextView by lazy { itemView.findViewById(R.id.starCountTextView) }
+        private val languageTextView : TextView by lazy { itemView.findViewById(R.id.languageTextView) }
 
         fun bind(item : GitHubRepos) {
             Glide.with(userImageView.context)
-                .load(item.owner.avatar_url)
+                .load(item.owner?.avatar_url)
                 .circleCrop()
                 .into(userImageView)
 
-            userLoginTextView.text = item.owner.login
+            userLoginTextView.text = item.owner?.login
             userUrlTextView.text = item.full_name
             descTextView.text = item.description ?: "설명 없음"
             starCountTextView.text = item.stargazers_count.toString()
             languageTextView.text = item.language ?: ""
+
+            itemView.setOnClickListener {
+                onClickedItem(item)
+            }
         }
     }
 

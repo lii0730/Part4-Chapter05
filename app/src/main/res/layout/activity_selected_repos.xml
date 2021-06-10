@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/avatarImageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="10dp"
+        android:src="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/lineView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:text="lii0730"
+        android:id="@+id/fullNameTextView"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/starImageView"
+        app:layout_constraintStart_toEndOf="@+id/avatarImageView"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="SODA1127/soda1127.github.io" />
+
+    <ImageView
+        android:id="@+id/starImageView"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/star"
+        app:layout_constraintBottom_toTopOf="@+id/lineView"
+        app:layout_constraintStart_toStartOf="@+id/fullNameTextView"
+        app:layout_constraintTop_toBottomOf="@+id/fullNameTextView" />
+
+    <TextView
+        android:text="70"
+        android:id="@+id/starCountTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@+id/starImageView"
+        app:layout_constraintStart_toEndOf="@+id/starImageView"
+        app:layout_constraintBottom_toBottomOf="@+id/starImageView"
+        tools:text="0" />
+
+    <ImageView
+        android:id="@+id/languageColorImageView"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="25dp"
+        android:background="@drawable/circle_background"
+        app:layout_constraintBottom_toTopOf="@+id/lineView"
+        app:layout_constraintStart_toEndOf="@+id/starCountTextView"
+        app:layout_constraintTop_toBottomOf="@+id/fullNameTextView"/>
+
+    <TextView
+        android:text="kotlin"
+        android:id="@+id/languageTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@+id/languageColorImageView"
+        app:layout_constraintStart_toEndOf="@+id/languageColorImageView"
+        app:layout_constraintBottom_toBottomOf="@+id/languageColorImageView"
+        tools:text="Kotlin" />
+
+    <ImageView
+        android:id="@+id/likeCheckButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_dislike"
+        app:layout_constraintBottom_toBottomOf="@+id/lineView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/fullNameTextView"
+        app:tint="@color/red"/>
+
+    <View
+        android:id="@+id/lineView"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/languageTextView" />
+
+
+    <TextView
+        android:id="@+id/descTitleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:text="설명"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lineView"
+        tools:text="설명" />
+
+    <TextView
+        android:id="@+id/descContentTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:text="lii0730"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descTitleTextView"
+        tools:text="소다의 개발 블로그" />
+
+    <TextView
+        android:id="@+id/updateTimeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:text="업데이트 시간"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descContentTextView"
+        tools:text="업데이트 시간" />
+
+    <TextView
+        android:id="@+id/updateTimeContentTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:text="lii0730"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/updateTimeTextView"
+        tools:text="2021-01-09T13:00:17Z" />
+</androidx.constraintlayout.widget.ConstraintLayout>
