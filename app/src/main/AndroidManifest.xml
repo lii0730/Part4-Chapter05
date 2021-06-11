@@ -11,11 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AOPPart4Chapter05">
-        <activity android:name=".SelectedReposActivity"></activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".SearchReposActivity" />
+        <activity android:name=".Activity.SelectedReposActivity"></activity>
+        <activity android:name=".Activity.MainActivity" />
+        <activity android:name=".Activity.SearchReposActivity" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".Activity.LoginActivity"
             android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

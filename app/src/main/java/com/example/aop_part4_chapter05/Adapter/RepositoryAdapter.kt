@@ -12,7 +12,7 @@ import com.bumptech.glide.Glide
 import com.example.aop_part4_chapter05.Entity.GitHubRepos
 import com.example.aop_part4_chapter05.R
 
-class SearchResultRepositoryAdapter(val onClickedItem : (GitHubRepos?) -> Unit) : ListAdapter<GitHubRepos, SearchResultRepositoryAdapter.ViewHolder>(differ) {
+class RepositoryAdapter(val onClickedItem : (GitHubRepos?) -> Unit) : ListAdapter<GitHubRepos, RepositoryAdapter.ViewHolder>(differ) {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         private val userImageView : AppCompatImageView by lazy { itemView.findViewById(R.id.userImageView) }
